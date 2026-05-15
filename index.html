@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corendon Virtual - Virtual Airline</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@fingerprintjs/fingerprintjs@4/dist/fp.min.js"></script>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="header-container">
+        <div class="logo">
+            <img src="images/logo.png" alt="Corendon Virtual" id="siteLogo" onerror="this.src='https://via.placeholder.com/180x60?text=Corendon+Virtual'">
+        </div>
+        <div class="auth-buttons">
+            <div id="userStatus"></div>
+            <button id="loginMenuBtn" class="btn-login">CREW CENTER</button>
+            <button id="logoutMenuBtn" class="btn-logout" style="display:none;">LOGOUT</button>
+        </div>
+    </div>
+</header>
+
+<!-- ANA MENU -->
+<nav class="main-nav">
+    <ul>
+        <li><a href="#" data-page="home" class="nav-link active">HOME</a></li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle">ABOUT US ▼</a>
+            <ul class="dropdown-menu">
+                <li><a href="#" data-page="about">ABOUT US</a></li>
+                <li><a href="#" data-page="staff">STAFF</a></li>
+                <li><a href="#" data-page="partners">OUR PARTNERS</a></li>
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle">OPERATIONS ▼</a>
+            <ul class="dropdown-menu">
+                <li><a href="#" data-page="ranks">RANKS</a></li>
+                <li><a href="#" data-page="fleet">FLEET</a></li>
+                <li><a href="#" data-page="hubs">HUBS</a></li>
+                <li><a href="#" data-page="routes">ROUTES</a></li>
+            </ul>
+        </li>
+        <li><a href="#" data-page="appl">APPLY</a></li>
+        <li id="crewCenterNav" style="display:none;"><a href="#" data-page="crewcenter">CREW CENTER</a></li>
+    </ul>
+</nav>
+
+<!-- İÇERİK ALANI -->
+<main id="contentArea">
+    
+    <!-- ============ HOME ============ -->
+    <div id="homePage" class="page active-page">
+        <div class="hero-fullscreen" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/img/g.jpg');">
+            <div class="hero-content">
+                <h1>Corendon Virtual Airlines</h1>
+                <p>Make a Difference</p>
+                <button class="btn-cta" onclick="showPage('appl')">Join Us →</button>
+            </div>
+        </div>
+        
+        <div class="welcome-section">
+            <h2>WELCOME TO CORENDON VIRTUAL</h2>
+            <p>Our community's goal is not just to fly; it's to experience planned flights, share our</p> 
+            <p>experiences, and grow together. We offer a better environment for you, our valued pilots.</p>
+            <p>In Corendon Virtual, the pilot is a part of a disciplined operational approach and</p>
+            <p>contributes to making virtual aviation more enjoyable and procedural.</p>
+        </div>
+        
+        <div class="why-join">
+            <h2>WHY JOIN US?</h2>
+            <div class="features-grid">
+                <div class="feature"><h3>✈️ Realistic Experience</h3><p>Realistic charter and leisure flight experience inspired by Corendon Airlines.</p></div>
+                <div class="feature"><h3>🌍 Extensive Route Network</h3><p>Fly to hundreds of destinations across Europe and beyond.</p></div>
+                <div class="feature"><h3>👥 Friendly Community</h3><p>Join a disciplined yet fun and welcoming pilot community.</p></div>
+                <div class="feature"><h3>📈 Career Progression</h3><p>Advance through ranks from Cadet to Command Captain.</p></div>
+            </div>
+        </div>
+        
+        <div class="ceo-message">
+            <h2>A special message for you from our CEO</h2>
+            <div class="message-card">
+                <div class="ceo-photo" style="background-image: url('/img/1.jpeg');"></div>
+                <div class="message-text">
+                    <p>"Dear Pilots,</p>
+                    <p>First of all, welcome to Corendon Virtual. Whether you are a professional pilot or a new user on Infinite Flight, we are happy and excited to see you as part of our family. Because we have much work to do together on this long and challenging journey.</p>
+                    <p>As you all know, Corendon Airlines, although one of Türkiye's low-cost airlines, is one of the companies that has made a name for itself by flying to many regions of Europe. We decided to bring this company to Infinite Flight. With this decision, we are helping you gain realistic pilot experiences by transferring Corendon Airlines' real-world flights into simulation.</p>
+                    <p>As a pilot on Corendon Virtual, you will have access to various resources, including detailed flight operations, support from our dedicated staff, and regular events designed to enhance your flying experience. We are working to make your time with us as productive as possible and are always ready to support you in realizing your aviation dreams.</p>
+                    <p>We look forward to seeing you in the sky and can't wait to fly with you as part of Corendon Virtual!</p>
+                    <p>We wish you safe flights."</p>
+                    <p class="ceo-signature"><strong>Sami_Yusuf_Beslenen</strong><br>CEO & Founder, Corendon Virtual</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="info-cards">
+            <div class="card"><h3>✈️ 500+</h3><p>Active Pilots</p></div>
+            <div class="card"><h3>🌍 150+</h3><p>Destinations</p></div>
+            <div class="card"><h3>⭐ 4.8</h3><p>Pilot Rating</p></div>
+        </div>
+    </div>
+
+    <!-- ============ ABOUT US ============ -->
+    <div id="aboutPage" class="page">
+        <div class="hero-fullscreen" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/img/c.jpg');">
+            <div class="hero-content">
+                <h1>About Us</h1>
+            </div>
+        </div>
+        <div class="about-content">
+            <h3>Who are we?</h3>
+            <p>When we founded Corendon, our core values were discipline and fun. What started as a small community has led us to become a well-known name today.</p>
+            <p>Our team is honored to contribute to Infinite Flight with Corendon, a low-cost airline. By considering our diverse perspectives, we can help you have a better flying experience.</p>
+        </div>
+    </div>
+
+    <!-- ============ STAFF (3 Executive + 6 Staff) ============ -->
+    <div id="staffPage" class="page">
+        <div class="hero-fullscreen" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/img/Screenshot_20260406_170901.jpg');">
+            <div class="hero-content">
+                <h1>Our Team</h1>
+            </div>
+        </div>
+        
+        <h2>Executive Team</h2>
+        <div class="staff-grid">
+            <div class="staff-card">
+                <div class="staff-photo" style="background-image: url('/img/1.jpeg');"></div>
+                <h4>CEO</h4>
+                <p>Sami_Yusuf_Beslenen</p>
+                <small>Founder & CEO</small>
+                <p class="staff-bio">I founded Corendon Virtual to provide Turkish and international pilots with a realistic charter and leisure flight experience.</p>
+            </div>
+            <div class="staff-card">
+                <div class="staff-photo" style="background-image: url('/img/XCVA_Logo_1-removebg-preview.png');"></div>
+                <h4>COO</h4>
+                <p>Vacant</p>
+                <small>Chief Operations Officer</small>
+                <p class="staff-bio">Responsible for daily operations, flight scheduling, and ensuring smooth execution of all virtual flights.</p>
+            </div>
+            <div class="staff-card">
+                <div class="staff-photo" style="background-image: url('/img/XCVA_Logo_1-removebg-preview.png');"></div>
+                <h4>CFO</h4>
+                <p>Vacant</p>
+                <small>Chief Financial Officer</small>
+                <p class="staff-bio">Manages virtual airline finances, budgeting, and resource allocation for growth.</p>
+            </div>
+        </div>
+        
+        <h2>Staff Team</h2>
+        <div class="staff-grid">
+            <div class="staff-card">
+                <div class="staff-photo" style="background-image: url('/img/XCVA_Logo_1-removebg-preview.png');"></div>
+                <h4>Operations Manager</h4>
+                <p>Vacant</p>
+                <small>Corendon VA</small>
+                <p class="staff-bio">Oversees flight operations and crew scheduling.</p>
+            </div>
+            <div class="staff-card">
+                <div class="staff-photo" style="background-image: url('/img/XCVA_Logo_1-removebg-preview.png');"></div>
+                <h4>Training Manager</h4>
+                <p>Vacant</p>
+                <small>Corendon VA</small>
+                <p class="staff-bio">Manages pilot training and certification programs.</p>
+            </div>
+            <div class="staff-card">
+                <div class="staff-photo" style="background-image: url('/img/XCVA_Logo_1-removebg-preview.png');"></div>
+                <h4>Events Coordinator</h4>
+                <p>Vacant</p>
+                <small>Corendon VA</small>
+                <p class="staff-bio">Plans and organizes community events and group flights.</p>
+            </div>
+            <div class="staff-card">
+                <div class="staff-photo" style="background-image: url('/img/XCVA_Logo_1-removebg-preview.png');"></div>
+                <h4>Media & Marketing</h4>
+                <p>Vacant</p>
+                <small>Corendon VA</small>
+                <p class="staff-bio">Handles social media, promotions, and external communications.</p>
+            </div>
+            <div class="staff-card">
+                <div class="staff-photo" style="background-image: url('/img/XCVA_Logo_1-removebg-preview.png');"></div>
+                <h4>Support Lead</h4>
+                <p>Vacant</p>
+                <small>Corendon VA</small>
+                <p class="staff-bio">Provides pilot support and resolves technical issues.</p>
+            </div>
+            <div class="staff-card">
+                <div class="staff-photo" style="background-image: url('/img/XCVA_Logo_1-removebg-preview.png');"></div>
+                <h4>IT & Webmaster</h4>
+                <p>Vacant</p>
+                <small>Corendon VA</small>
+                <p class="staff-bio">Maintains website, crew system, and technical infrastructure.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ PARTNERS ============ -->
+    <div id="partnersPage" class="page">
+        <div class="hero-fullscreen" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/img/Screenshot_20260406_173023.jpg');">
+            <div class="hero-content">
+                <h1>Our Partners</h1>
+            </div>
+        </div>
+        <div class="partners-grid">
+            <div class="partner-card">
+                <div class="partner-logo" style="background-image: url('/img/Ajet-removebg-preview.png');"></div>
+                <h4>AJet VIRTUAL</h4>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ RANKS (RESİMLİ) ============ -->
+    <div id="ranksPage" class="page">
+        <div class="hero-fullscreen" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/img/e.jpg');">
+            <div class="hero-content">
+                <h1>Ranks</h1>
+            </div>
+        </div>
+        <div class="ranks-grid">
+            <div class="rank-card">
+                <div class="rank-image" style="background-image: url('/img/Cadet.png');"></div>
+                <h3>Cadet</h3>
+                <p>Starting rank for all new pilots</p>
+                <span class="rank-requirements">0-10 flight hours</span>
+            </div>
+            <div class="rank-card">
+                <div class="rank-image" style="background-image: url('/img/SO.png');"></div>
+                <h3>Second Officer</h3>
+                <p>First step into professional flying</p>
+                <span class="rank-requirements">10-25 flight hours</span>
+            </div>
+            <div class="rank-card">
+                <div class="rank-image" style="background-image: url('/img/FO.png');"></div>
+                <h3>First Officer</h3>
+                <p>Experienced co-pilot</p>
+                <span class="rank-requirements">25-45 flight hours</span>
+            </div>
+            <div class="rank-card">
+                <div class="rank-image" style="background-image: url('/img/SFO.png');"></div>
+                <h3>Second First Officer</h3>
+                <p>Experienced co-pilot</p>
+                <span class="rank-requirements">25-45 flight hours</span>
+            </div>
+            <div class="rank-card">
+                <div class="rank-image" style="background-image: url('/img/Cpt.png');"></div>
+                <h3>Captain</h3>
+                <p>Command of the aircraft</p>
+                <span class="rank-requirements">45-55 flight hours</span>
+            </div>
+            <div class="rank-card">
+                <div class="rank-image" style="background-image: url('/img/SCpt.png');"></div>
+                <h3>Senior Captain</h3>
+                <p>Elite command pilot</p>
+                <span class="rank-requirements">55-70 flight hours</span>
+            </div>
+            <div class="rank-card">
+                <div class="rank-image" style="background-image: url('/img/CCpt.png');"></div>
+                <h3>Chief Captain</h3>
+                <p>Highest rank - The best of the best</p>
+                <span class="rank-requirements">500+ flight hours</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ FLEET (BÜYÜK FOTOĞRAFLI) ============ -->
+    <div id="fleetPage" class="page">
+        <div class="hero-fullscreen" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/img/b.jpg');">
+            <div class="hero-content">
+                <h1>Our Fleet</h1>
+            </div>
+        </div>
+        <div class="fleet-list">
+            <div class="fleet-item">
+                <div class="fleet-image" style="background-image: url('/img/B738.png');"></div>
+                <div class="fleet-info">
+                    <h3>Boeing 737-800</h3>
+                    <p>Capacity: 189 passengers</p>
+                    <p>Range: 5,765 km</p>
+                    <p>Speed: Mach 0.78</p>
+                </div>
+            </div>
+            <div class="fleet-item">
+                <div class="fleet-image" style="background-image: url('/img/B38M.png');"></div>
+                <div class="fleet-info">
+                    <h3>Boeing 737-8 Max</h3>
+                    <p>Capacity: 220 passengers</p>
+                    <p>Range: 6,010 km</p>
+                    <p>Speed: Mach 0.78</p>
+                </div>
+            </div>
+            <div class="fleet-item">
+                <div class="fleet-image" style="background-image: url('/img/A320.png');"></div>
+                <div class="fleet-info">
+                    <h3>Airbus A320-200</h3>
+                    <p>Capacity: 195 passengers</p>
+                    <p>Range: 6,500 km</p>
+                    <p>Speed: Mach 0.78</p>
+                </div>
+            </div>
+            <div class="fleet-item">
+                <div class="fleet-image" style="background-image: url('/img/A321.png');"></div>
+                <div class="fleet-info">
+                    <h3>Airbus A321-200</h3>
+                    <p>Capacity: 220 passengers</p>
+                    <p>Range: 6,500 km</p>
+                    <p>Speed: Mach 0.78</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ HUBS (RESİMLİ) ============ -->
+    <div id="hubsPage" class="page">
+        <div class="hero-fullscreen" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/img/f.jpg');">
+            <div class="hero-content">
+                <h1>Our Hubs</h1>
+            </div>
+        </div>
+        <div class="hubs-grid">
+            <div class="hub-card">
+                <div class="hub-image" style="background-image: url('/img/Antalya.jpg');"></div>
+                <h3>📍 Antalya (AYT)</h3>
+                <p>Main Hub</p>
+                <small>Gateway to the Turkish Riviera</small>
+            </div>
+            <div class="hub-card">
+                <div class="hub-image" style="background-image: url('/img/İzmir.jpg');"></div>
+                <h3>📍 Izmir (ADN)</h3>
+                <p>Secondary Hub</p>
+                <small>Where East meets West</small>
+            </div>
+            <div class="hub-card">
+                <div class="hub-image" style="background-image: url('/img/Ankara.jpg');"></div>
+                <h3>📍 Ankara (ESB)</h3>
+                <p>Third Hub</p>
+                <small>Capital of Turkey</small>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ ROUTES ============ -->
+    <div id="routesPage" class="page">
+        <div class="hero-fullscreen" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/img/d.jpg');">
+            <div class="hero-content">
+                <h1>Our Routes</h1>
+            </div>
+        </div>
+        <div class="airtable-container">
+            <iframe class="airtable-embed" src="YOUR_AIRTABLE_EMBED_URL_HERE" frameborder="0" width="100%" height="600" style="background: transparent;"></iframe>
+        </div>
+    </div>
+
+    <!-- ============ APPLY ============ -->
+    <div id="applPage" class="page">
+        <div class="hero-fullscreen" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/img/h.jpg');">
+            <div class="hero-content">
+                <h1>Join Corendon Virtual</h1>
+            </div>
+        </div>
+        <div class="apply-text">
+            <p>We are looking for passionate virtual pilots who want to experience realistic charter and leisure flights.</p>
+            <p>Fill out the form below to begin your application process.</p>
+        </div>
+        <div class="google-form-container">
+            <iframe src="YOUR_GOOGLE_FORM_URL_HERE" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        </div>
+    </div>
+
+    <!-- ============ CREW CENTER ============ -->
+    <div id="crewcenterPage" class="page">
+        <div class="hero-fullscreen" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/banner-crew.jpg');">
+            <div class="hero-content">
+                <h1>Crew Center</h1>
+                <p>Welcome, <span id="crewUsername">Pilot</span>!</p>
+            </div>
+        </div>
+        <div class="crew-profile">
+            <div class="crew-stats">
+                <div class="stat">Total Flights: <span id="totalFlights">0</span></div>
+                <div class="stat">Flight Hours: <span id="flightHours">0</span></div>
+                <div class="stat">Rank: <span id="crewRank">Cadet</span></div>
+            </div>
+            <button id="changePwdFromCrewBtn" class="btn-secondary">Change Password</button>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <p>&copy; Corendon Virtual Account is not affiliated with Infinite Flight, Corendon Airlines, or any of its subsidiaries.</p>
+    <p>All logos and trademarks belong to Corendon.</p>
+    <p> <a href="https://www.corendonairlines.com/tr" target="_blank">Official Corendon Website</a> | <a href="#">Contact Us</a> | <a href="https://community.infiniteflight.com/u/corendonvirtual/summary" target="_blank">Corendon Virtual Community Profile</a></p>
+
+© 2026 Corendon Virtual. All rights reserved.</p>
+</footer>
+
+<!-- MODALLAR -->
+<div id="loginModal" class="modal"><div class="modal-content"><span class="close">&times;</span><h3>Crew Center Login</h3><input type="text" id="loginUsername" placeholder="Infinite Flight Username"><input type="password" id="loginPassword" placeholder="Password (6 digits)" maxlength="6"><button id="loginBtn">Login</button><p id="loginError" class="error"></p></div></div>
+<div id="changePwdModal" class="modal"><div class="modal-content"><span class="close">&times;</span><h3>Change Your Password</h3><p>Welcome! Please set your new password.</p><input type="password" id="newPassword" placeholder="New Password (6 digits)" maxlength="6"><input type="password" id="confirmNewPassword" placeholder="Confirm Password" maxlength="6"><button id="confirmChangeBtn">Save Password</button><p id="changePwdError" class="error"></p></div></div>
+<div id="deviceLimitModal" class="modal"><div class="modal-content"><h3>⚠️ Device Limit Reached</h3><p>Your account is limited to 2 devices.<br>Please contact the admin to add a new device.</p><button id="notifyAdminBtn">Notify Admin</button><button id="closeDeviceModal">Close</button></div></div>
+
+<script src="script.js"></script>
+</body>
+</html>
